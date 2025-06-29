@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petals & Plastic | Crafted Elegance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff7f7;
+      color: #333;
+    }
+    header {
+      background: #f8e1f4;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #c97ba8;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #c97ba8;
+      font-weight: bold;
+    }
+    section {
+      padding: 3rem 2rem;
+    }
+    .hero {
+      background: linear-gradient(to bottom right, #ffe0ec, #e4f0f5);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+    .products, .customize, .contact {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    .customizer-container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .customizer-container h3 {
+      font-family: 'Satisfy', cursive;
+      font-size: 2rem;
+      color: #c97ba8;
+    }
+    .vase-area {
+      width: 300px;
+      height: 300px;
+      margin: 1rem auto;
+      border: 2px dashed #c97ba8;
+      border-radius: 1rem;
+      position: relative;
+      background-color: #fff0f5;
+    }
+    .vase {
+      width: 100px;
+      height: 150px;
+      border-radius: 60% 60% 30% 30% / 80% 80% 20% 20%;
+      background-color: #f8c8dc;
+      position: absolute;
+      top: 75px;
+      left: 100px;
+      cursor: move;
+    }
+    .color-options {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .color-swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .engraving {
+      margin-top: 1rem;
+    }
+    .engraving input {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .engraved-text {
+      font-family: 'Satisfy', cursive;
+      font-size: 1.5rem;
+      color: #a64f79;
+      position: absolute;
+      top: 180px;
+      width: 100%;
+      text-align: center;
+    }
+    footer {
+      background: #f8e1f4;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .chatbot h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #c97ba8;
+    }
+    .chatbox {
+      height: 150px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .chatbot input {
+      width: calc(100% - 30px);
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .chatbot button {
+      background: #c97ba8;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Petals & Plastic</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#vases">Our Vases</a>
+      <a href="#custom">Customise</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="hero" id="home">
+    <h2>Crafted Elegance in Every Curve</h2>
+    <p>Discover unique, handcrafted pastel vases designed to bring charm to your space. Customise your own using our AI-powered design tool!</p>
+  </section>  <section class="products" id="vases">
+    <h2 style="text-align:center; color:#c97ba8">Our Collection</h2>
+    <p style="padding:1rem 2rem">From blush pink to soft mint, explore our range of beautiful vases. Each piece is handmade with care and creativity.</p>
+  </section>  <section class="customize" id="custom">
+    <div class="customizer-container">
+      <h3>Design Your Vase 💖</h3>
+      <div class="vase-area" id="vaseArea">
+        <div class="vase" id="vase" draggable="true"></div>
+        <div class="engraved-text" id="engravedText"></div>
+      </div>
+      <div class="color-options">
+        <div class="color-swatch" style="background-color:#f8c8dc" onclick="changeColor('#f8c8dc')"></div>
+        <div class="color-swatch" style="background-color:#cce5d0" onclick="changeColor('#cce5d0')"></div>
+        <div class="color-swatch" style="background-color:#d6ccf2" onclick="changeColor('#d6ccf2')"></div>
+        <div class="color-swatch" style="background-color:#ffe7c2" onclick="changeColor('#ffe7c2')"></div>
+        <div class="color-swatch" style="background-color:#cde7f0" onclick="changeColor('#cde7f0')"></div>
+      </div>
+      <div class="engraving">
+        <input type="text" placeholder="Enter your name" oninput="engraveName(this.value)" />
+      </div>
+    </div>
+  </section>  <section class="contact" id="contact">
+    <h2 style="text-align:center; color:#c97ba8">Get in Touch</h2>
+    <p style="padding:1rem 2rem">Have questions or special requests? Reach out to us anytime!</p>
+  </section>  <div class="chatbot">
+    <h3>Chat with P&P Bot 💬</h3>
+    <div class="chatbox" id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>  <footer>
+    &copy; 2025 Petals & Plastic. All rights reserved.
+  </footer>  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatbox = document.getElementById('chatbox');
+      const message = input.value.trim();
+      if (message === '') return;
+
+      const userMsg = document.createElement('div');
+      userMsg.textContent = "You: " + message;
+      chatbox.appendChild(userMsg);
+
+      let botReply = "";
+      if (message.toLowerCase().includes("custom")) {
+        botReply = "Sure! You can customise your vase by choosing color, shape, and more.";
+      } else if (message.toLowerCase().includes("price")) {
+        botReply = "Our vases start from ₹499 and go up based on size and customisation.";
+      } else if (message.toLowerCase().includes("hello") || message.toLowerCase().includes("hi")) {
+        botReply = "Hi there! I'm P&P Bot, how can I help you today?";
+      } else {
+        botReply = "I'm not sure about that, but you can reach out to us on the Contact page!";
+      }
+
+      const botMsg = document.createElement('div');
+      botMsg.textContent = "P&P Bot: " + botReply;
+      chatbox.appendChild(botMsg);
+
+      input.value = "";
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function changeColor(color) {
+      document.getElementById('vase').style.backgroundColor = color;
+    }
+
+    function engraveName(name) {
+      document.getElementById('engravedText').textContent = name;
+    }
+  </script></body>
+</html>
